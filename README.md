@@ -90,50 +90,50 @@ Visszamerge a main branchbe (GitHub vagy GitHub Desktop segítségével)
 → „Merge into main”
 
 
-## 6. Terraform infrastruktúra – Azure Resource Group + Container Instance
+## 6. Terraform – Azure Infrastruktúra
 
-A projekt tartalmaz egy külön terraform/ könyvtárat, amelyben egy Azure-alapú, konténeres futtatókörnyezet infrastruktúrája van definiálva.
+A projekt tartalmaz egy terraform/ könyvtárat, amely Azure erőforrások létrehozását definiálja Terraform segítségével.
+Ez a konfiguráció egy működőképes, felhős célkörnyezetet ír le, ahol a Node.js alkalmazás Docker image-e futtatható lenne.
 
 Provider
 
-A Terraform a következő providert használja:
+A konfiguráció a következő Terraform providereket használja:
 
-`hashicorp/azurerm` 
-
-
-Ez felelős Azure erőforrások létrehozásáért.
-
-(Ezen felül használunk egy hashicorp/random providert is a dinamikus DNS név generálásához.)
+`hashicorp/azurerm   – Azure erőforrások kezelésére`
+`hashicorp/random    – DNS név suffix generálásához`
 
 Létrejövő erőforrások
 
-A Terraform konfiguráció a következő Azure erőforrásokat hozza létre:
+A Terraform kód az alábbi Azure elemeket hozza létre:
 
-Resource Group – `devops-rg`
+Resource Group (devops-rg)
 
-Azure Container Instance (ACI) – hellodevops-container
+Azure Container Instance (hellodevops-container)
 
-Linux konténer
+Linux alapú konténer
 
-CPU/memória beállítás
+CPU és memória beállítás
+
+8080-as port megnyitása
 
 Publikus IP cím
 
-Automatikusan generált DNS label
+Automatikusan generált DNS név (hellodevops-XXXXX.westeurope.azurecontainer.io)
 
-Ez egy teljes értékű felhős célkörnyezet, ahol a Node.js alkalmazás Docker image-e elvileg futtatható lenne.
+Ez az infrastruktúra teljes mértékben alkalmas lenne a projekt Docker image-ének futtatására.
 
-Használat:
-```
-cd terraform
-terraform init
-terraform plan
-terraform apply
-```
+Terraform használata
+`cd terraform`
+`terraform init`
+`terraform plan`
+`terraform apply`
 
-Output:
 
-A konfiguráció a konténer publikus DNS címét is kiírja.
+init – letölti a providereket
+
+plan – megmutatja, milyen Azure erőforrások jönnének létre
+
+apply – opcionális; létrehozza a valós felhőben az infrastruktúrát
 
 
 ## 7. Felhasznált technológiák / eszközök
