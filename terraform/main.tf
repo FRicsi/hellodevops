@@ -17,7 +17,7 @@ provider "azurerm" {
 # -----------------------------
 resource "azurerm_resource_group" "devops_rg" {
   name     = "devops-rg"
-  location = "westeurope"
+  location = var.location
 }
 
 # -----------------------------
