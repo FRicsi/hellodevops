@@ -2,7 +2,7 @@ Ez a projekt egy egyszerű „Hello World” jellegű Node.js + Express alkalmaz
 ## 1. Projekt felépítése
 
 A projekt egy egyszerű HTTP szervert tartalmaz, amely a következő címen érhető el futtatás után:
-http://localhost:8080
+`http://localhost:8080`
 
 A szerver Hello DevOps World! szöveget ad vissza.
 
@@ -11,8 +11,8 @@ A szerver Hello DevOps World! szöveget ad vissza.
 A projekt futtatásához szükség van Node.js-re és npm-re.
 
 Telepítés és indítás:
-npm install
-npm start
+`npm install`
+`npm start`
 Ez elindítja az alkalmazást a 8080-as porton.
 
 ## 3. Futási lépések (lokálisan)
@@ -24,11 +24,11 @@ O:\DevOpsProject\hellodevops
 
 Indítás:
 
-npm start
+`npm start`
 
 Elérés böngészőben:
 
-http://localhost:8080
+`http://localhost:8080`
 
 ## 4. Docker build és futtatás
 
@@ -38,21 +38,21 @@ Docker image buildelése
 
 (ahogy ténylegesen csináltuk)
 
-docker build --no-cache -t hellodevops:latest .
+`docker build --no-cache -t hellodevops:latest . `
 
 Konténer futtatása
-docker run -p 8080:8080 hellodevops:latest
+`docker run -p 8080:8080 hellodevops:latest`
 
 
 Böngészőben megnyitva:
 
-http://localhost:8080
+`http://localhost:8080`
 
 Konténer belsejének ellenőrzése (pl. package.json)
 
 Git Bash esetén:
 
-winpty docker run --rm -it hellodevops:latest cat package.json
+`winpty docker run --rm -it hellodevops:latest cat package.json`
 
 ## 5. Git workflow – Trunk Based Development
 
@@ -70,20 +70,20 @@ Használt parancsok:
 
 Repo inicializálás:
 
-git init
-git add .
-git commit -m "Initial commit: Hello DevOps server"
+`git init`
+`git add .`
+`git commit -m "Initial commit: Hello DevOps server"`
 
 
 Feature branch készítése:
 
-git checkout -b feature/update-message
+`git checkout -b feature/update-message`
 
 
 Változtatások commitolása:
 
-git add .
-git commit -m "feat: update message from feature branch"
+`git add .`
+`git commit -m "feat: update message from feature branch"`
 
 
 Visszamerge a main branchbe (GitHub vagy GitHub Desktop segítségével)
@@ -96,19 +96,21 @@ A projekt tartalmaz egy Terraform konfigurációt is, amely egy egyszerű, felh�
 
 Létrejövő erőforrások:
 
-Resource Group: devops-rg
+Resource Group: `devops-rg`
 
-Container Instance: hellodevops-container
+Container Instance: `hellodevops-container`
 
 Publikus IP + DNS név
 
 Ez egy életképes felhős környezet, ahol a Docker image-ből épülő hello-devops alkalmazás futtatható lenne.
 
 Használat:
+```
 cd terraform
 terraform init
 terraform plan
 terraform apply
+```
 
 Output:
 
@@ -130,6 +132,7 @@ Terraform – infrastruktúra mint kód
 Azure Container Instances – cél felhőkörnyezet
 
 ## 8. Projekt mappa struktúra
+```
 hellodevops/
 ├── index.js
 ├── package.json
@@ -139,3 +142,4 @@ hellodevops/
 │   ├── variables.tf
 │   └── outputs.tf
 └── README.md
+```
