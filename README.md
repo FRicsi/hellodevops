@@ -92,17 +92,36 @@ Visszamerge a main branchbe (GitHub vagy GitHub Desktop segítségével)
 
 ## 6. Terraform infrastruktúra – Azure Resource Group + Container Instance
 
-A projekt tartalmaz egy Terraform konfigurációt is, amely egy egyszerű, felhőben futtatható célkörnyezetet hoz létre.
+A projekt tartalmaz egy külön terraform/ könyvtárat, amelyben egy Azure-alapú, konténeres futtatókörnyezet infrastruktúrája van definiálva.
 
-Létrejövő erőforrások:
+Provider
 
-Resource Group: `devops-rg`
+A Terraform a következő providert használja:
 
-Container Instance: `hellodevops-container`
+`hashicorp/azurerm` 
 
-Publikus IP + DNS név
 
-Ez egy életképes felhős környezet, ahol a Docker image-ből épülő hello-devops alkalmazás futtatható lenne.
+Ez felelős Azure erőforrások létrehozásáért.
+
+(Ezen felül használunk egy hashicorp/random providert is a dinamikus DNS név generálásához.)
+
+Létrejövő erőforrások
+
+A Terraform konfiguráció a következő Azure erőforrásokat hozza létre:
+
+Resource Group – `devops-rg`
+
+Azure Container Instance (ACI) – hellodevops-container
+
+Linux konténer
+
+CPU/memória beállítás
+
+Publikus IP cím
+
+Automatikusan generált DNS label
+
+Ez egy teljes értékű felhős célkörnyezet, ahol a Node.js alkalmazás Docker image-e elvileg futtatható lenne.
 
 Használat:
 ```
