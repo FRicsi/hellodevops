@@ -7,7 +7,15 @@ A projekt egy egyszerű HTTP szervert tartalmaz, amely a következő címen érh
 A szerver Hello DevOps World! szöveget ad vissza.
 
 ## 2. Build lépések (Node.js)
+Build
 
+A projekt egy Node.js + Express alapú backend alkalmazás, amely nem igényel külön fordítást.
+A „build” folyamat a függőségek telepítését jelenti, amely a következő paranccsal történik:
+
+npm install
+
+
+Ez letölti a szükséges csomagokat és előkészíti az alkalmazást a futtatáshoz.
 A projekt futtatásához szükség van Node.js-re és npm-re.
 
 Telepítés és indítás:
